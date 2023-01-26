@@ -22,15 +22,27 @@ section{
 }
 .section-div{
     font-size: small;
+    color: aliceblue;
+    /* font-size: 77px;  */
+    text-shadow: 2px 2px 7px black;
     margin: 20px;
     border-radius: 10px;
     align-items: center;    
     display: flex;
     flex-direction: column;
-    background-color: rgb(159, 86, 227);
+    background-image: url(img/up.jpeg);
+    background-size: cover;
+    background-position: center;
+
 }
 
-.section_2_div{
+#seccion_2{
+    font-size: 15px;
+    color: aliceblue;
+    text-shadow: 2px 2px 7px black;
+    background-image: url(img/down.jpeg);
+    background-position: center;
+    background-size: cover;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -38,6 +50,7 @@ section{
 
 }
 .section_2_div >  p{
+    background-color: rgba(0, 0, 0, 0.235);
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
