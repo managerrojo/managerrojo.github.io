@@ -6,20 +6,51 @@
 }
 
 body{
-    background-color: rgb(169, 252, 252);
+
 }
 
 main{
     display:flex;
+    flex-direction: column;
     width: 90vw;
     height: 90vh;
-    background-color: rgb(123, 123, 226);
 }
 section{
-    background-color: beige;
     width: 80%;
     height: 500px;
-    margin: 0 auto;    
+    margin: 0 auto;
 }
 .section-div{
+    font-size: small;
+    margin: 20px;
+    border-radius: 10px;
+    align-items: center;    
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(159, 86, 227);
+}
+
+.section_2_div{
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(80, 80, 248);
+
+}
+.section_2_div >  p{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    padding: 10px;
+}
+
+@media(max-width: 600px){
+
+.section-div > form {
+    align-items: center;    
+    display: flex;
+    flex-direction: column;
+    background-color: blue;
+}
+
 }

@@ -11,13 +11,12 @@ function datos(){
 
           // Calcular índice de masa corporal (IMC)
           const bmi = weight / (height * height);
-
           if(gender === 'chico'){
               gender = 1;
           }else if(gender === 'chica'){
               gender = 0;
           }else{
-              alert('ingrese un genero correcto recuerda que se debe escribir tal cual como se muestra');
+              alert('debe de llenar todos los campos');
           }
           // Calcular índice de grasa corporal
           let bodyFat;
@@ -47,40 +46,61 @@ function datos(){
 
           }
 
-           console.log('su indice de masa coropral es', bmi)
-           console.log('su indice de grasa coropral es', bodyFat);
-           console.log('su indice de masa somatotipo genetico', somatotype);
-           console.log('su genero es ', typeof(gender));
-           console.log('su masa libre de grasa es  ', mlgKg);
+           contenedor = document.getElementById("somatotipo").textContent = somatotype;
+           contenedor = document.getElementById("masa").textContent =  bmi;
+           contenedor = document.getElementById("grasa").textContent = bodyFat;
+           contenedor = document.getElementById("masa_limpia").textContent = mlgKg;
 
     };
 
+    const almac = document.querySelector('.almac');
+
+      almac.addEventListener('click',function(){
+          document.getElementById('barra').classList.toggle('active');
+      });
 
 
-    const otraPromesa = ()=>{
-      return new Promise ((resolve, reject)=>{
-        if(false)resolve('aca estamos ');
-        else(reject('mehhhh'));
-      })
-    }
+    function writing(str){
+      let arrFromStr = str.split('');   //split tranforma el string en Array
+      let i = 0;
+      let printStr = setInterval(function(){
+    
+       document.body.style.fontSize = '';
+       document.querySelector('.text').innerHTML += arrFromStr[i];
+       i++;
+       if (i === arrFromStr.length){
+        clearInterval(printStr);
+       }
+      },100);
+     };
+     writing('esta es la supercalculadora para ponerse mamadisimo en 4 meses')
+
+
+
+    // const otraPromesa = ()=>{
+    //   return new Promise ((resolve, reject)=>{
+    //     if(false)resolve('aca estamos ');
+    //     else(reject('mehhhh'));
+    //   })
+    // }
     // otraPromesa()
     // .then(response=> console.log(response))
     // .catch(err=> console.log(err))
 // \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
 
-    const funcionother = ()=>{
-      return new Promise((r, reject)=>{
-          if(true){
-              r('hbjkioioioioi')
-          }else{
-            reject('mehhh ')
-          }
-        })
-      }
-      funcionother()
-      .then(response=> console.log(response))
-      .catch(err=> console.log(err))
+    // const funcionother = ()=>{
+    //   return new Promise((r, reject)=>{
+    //       if(true){
+    //           r('hbjkioioioioi')
+    //       }else{
+    //         reject('mehhh ')
+    //       }
+    //     })
+    //   }
+    //   funcionother()
+    //   .then(response=> console.log(response))
+    //   .catch(err=> console.log(err))
 
 
 //     let numbers = [];
