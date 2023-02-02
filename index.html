@@ -27,19 +27,29 @@
                                 <input type="text" name="peso" id="peso">
                                 <p>Ingresa tu altura en metros</p>
                                 <input type="number" name="altura" id="altura">
-                                
-                                <p>Ingresa tu nivel de actividad física:</p>
-                                <select id="actividad">
-                                    <option value="">selecion</option>
-                                    <option value="alta">alta</option>
-                                    <option value="moderada">moderada</option>
-                                    <option value="baja">baja</option>
-                                </select>
                                 <p>cual es tu sexo</p>
                                 <select id="sexo" name="sexo">
                                     <option value="">opcion</option>
-                                    <option value="chico">Chico</option>
-                                    <option value="chica">Chica</option>
+                                    <option value="male">Chico</option>
+                                    <option value="female">Chica</option>
+                                </select>
+                                <p>Ingresa tu nivel de actividad física:</p>
+                                <select id="actividad">
+                                    <option value="">selecion</option>
+                                    <option value="level_4">alta: Ejercicio diario o ejercicio intenso 3-4 veces/semana</option>
+                                    <option value="level_3">moderada: Ejercicio 4-5 veces/semana”</option>
+                                    <option value="level_2">baja: Ejercicio 1-3 veces/semana</option>
+                                    <option value="level_1">Sedentario: poco o nada de ejercicio</option>
+                                </select>
+                                <p>Ingresa tu objetivos:</p>
+                                <select id="objetivos">
+                                    <option value="">selecion</option>
+                                    <option value="maintain">mantener el peso</option>
+                                    <option value="mildlose">Pérdida de peso leve</option>
+                                    <option value="weightlose">Pérdida de peso extrema</option>
+                                    <option value="extremelose">Leve aumento de peso"</option>
+                                    <option value="mildgain">Ganancia extrema de peso</option>
+                                    <option value="weightgain">Sedentario: poco o nada de ejercicio</option>
                                 </select>                    
                             </label> <br> <br>
                             <button type="button" onclick="datos()">enviar</button>
