@@ -38,15 +38,12 @@ section{
 
 #seccion_2{
     font-size: 15px;
-    color: aliceblue;
-    text-shadow: 2px 2px 7px black;
-    background-image: url(img/down.jpeg);
+    color:  black ;
+    text-shadow: 2px 2px 7px aliceblue;
     background-position: center;
     background-size: cover;
     border-radius: 10px;
     display: flex;
-    flex-direction: column;
-    background-color: rgb(80, 80, 248);
 
 }
 .section_2_div >  p{
@@ -63,7 +60,6 @@ section{
     align-items: center;    
     display: flex;
     flex-direction: column;
-    background-color: blue;
 }
 
 }

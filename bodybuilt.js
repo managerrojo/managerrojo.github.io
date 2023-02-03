@@ -1,76 +1,139 @@
 function datos(){
 
-const options = {
-	method: 'GET',
-	headers: {
-		'X-RapidAPI-Key': 'da75596aa9msh6b3e6d3ac2951afp1257c5jsn44982367c41b',
-		'X-RapidAPI-Host': 'fitness-calculator.p.rapidapi.com'
-	}
-};
-var age =  parseInt(document.getElementById('edad').value);
-var weight =  parseInt(document.getElementById('peso').value);
-var height =  parseInt(document.getElementById('altura').value);
-// var neck =  parseInt(document.getElementById('cuello').value);
-// var waist =  parseInt(document.getElementById('cintura').value);
-// var hip =  parseInt(document.getElementById('cadera').value);
-var activitylevel = document.getElementById('actividad').value;
-var goals = document.getElementById('objetivos').value;
-var gender  = document.getElementById('sexo').value;
 
-var neck = 50, waist = 96, hip =99;
-var age = 31, gender = 'male', height =163, weight = 59, activitylevel = 'level_1';
-
-const apu = `https://fitness-calculator.p.rapidapi.com/dailycalorie?age=${age}&gender=${gender}&height=${height}&weight=${weight}&activitylevel=${activitylevel}`
+          contenedor1Uno = document.getElementById("seccion_3") 
+          contenedor2Dos = document.getElementById("seccion_2") 
 
 
+        const options = {
+          method: 'GET',
+          headers: {
+            'X-RapidAPI-Key': 'da75596aa9msh6b3e6d3ac2951afp1257c5jsn44982367c41b',
+            'X-RapidAPI-Host': 'fitness-calculator.p.rapidapi.com'
+          }
+        };
+        var age =  parseInt(document.getElementById('edad').value);
+        var weight =  parseInt(document.getElementById('peso').value);
+        var height =  parseInt(document.getElementById('altura').value);
+        var neck =  parseInt(document.getElementById('cuello').value);
+        var waist =  parseInt(document.getElementById('cintura').value);
+        var hip =  parseInt(document.getElementById('cadera').value);
+        var activitylevel = document.getElementById('actividad').value;
+        var goals = document.getElementById('objetivos').value;
+        var gender  = document.getElementById('sexo').value;
 
-// OPCIONES DE REPUESTA POR DEFECTO
-// fetch( apu, options)
-// 	.then(response => response.json())
-// 	.then(response => console.log(response))
-// 	.catch(err => console.error(err))
+        const apuCal = `https://fitness-calculator.p.rapidapi.com/dailycalorie?age=${age}&gender=${gender}&height=${height}&weight=${weight}&activitylevel=${activitylevel}`;
 
-//  CURSO ASINCRONISMO JS 
-async function fetchData(urlApi){
-  const response = await fetch(urlApi, options)
-  const data = response.json()
-  console.log(data);
-  return data;
-}
-(async ()=> {
-  try{
-    const entrega = await fetchData(apu);
-    console.log(data); 
+        const apuFat = `https://fitness-calculator.p.rapidapi.com/bodyfat?age=${age}&gender=${gender}&weight=${weight}&height=${height}&neck=${neck}&waist=${waist}&hip=${hip}`;
+        //  aply asinc Javascript Course calories 
+              async function fetchData(urlApi){
+                const response = await fetch(urlApi, options)
+                const data = response.json()
+                return data;
+              }
+              (async ()=> {
+                try{
+                  const entrega = await fetchData(apuCal);
+                  caloryMainten = entrega.data["goals"]['maintain weight'],
+                      calory_extremeGainWieght = entrega.data["goals"]['Extreme weight gain']['calory'],
+                      howManyWieghtgain = entrega.data["goals"]['Extreme weight gain']['gain weight'],
+                          howManyWieghtLoss = entrega.data["goals"]['Extreme weight loss']['loss weight'],
+                          calory_extremeLoseWieght = entrega.data["goals"]['Extreme weight loss']['calory'],
+                              howManyWieghtMiddleCalorie = entrega.data["goals"]['Mild weight loss']['calory'],
+                              howManyWieghtMiddleLoss = entrega.data["goals"]['Mild weight loss']['loss weight'];
+                    view = `
+                              <div class="section_2_div d-flex-column">
+                                  <h6> aca esta una tabla de la ingesta recomendada de calorias y los resultados que obtendrias segun tus objetivos</h6>
+                                      <div class="card">
+                                          <div class="card-header" >
+                                              Este es tu costo  energetico diario en calorias 
+                                          </div>
+                                          <div class="card-body" id="grasa">
+                                          ${caloryMainten}
+                                          </div>
+                                      </div>
+                                      <div class="card">
+                                          <div class="card-header">
+                                              Ingesta recomendada  para ganancias extremas de masa
+                                          </div>
+                                          <div class="card-body" id="masa">
+                                          ${calory_extremeGainWieght} 
+                                          <p  class="card-header" >resultado</p>
+                                          ${howManyWieghtgain}
+                                          </div>
+                                      </div>
+                                      <div class="card">
+                                        <div class="card-header">
+                                          Ingesta recomendada para perdidas extremas
+                                            </div>
+                                              <div class="card-body" id="masa_limpia">
+                                              ${howManyWieghtMiddleCalorie}
+                                            <p class="card-header" >resultado</p>
+                                        ${howManyWieghtMiddleLoss}
+                                      </div>  
+                                      <div class="card">
+                                          <div class="card-header">
+                                          Ingesta recomendada para perdidas extremas
+                                          </div>
+                                          <div class="card-body" id="masa_limpia">
+                                          ${calory_extremeLoseWieght}
+                                          <p class="card-header" >resultado</p>
+                                          ${howManyWieghtLoss}
+                                          </div>
+                                </div>
+                                                      <p>sigue cada consejo y seras un Spartano en corto tiempo</p>
+                                          </div>
+                    `;
+                    contenedor1Uno.innerHTML = view;
+                }catch(error){
+                  console.error(error)
+                  }
+              })();
+              // calculate bodFat
+                function  bodyFat (){   
+                  async function fetchData(urlApi){
+                    const response = await fetch(urlApi, options)
+                    const data = response.json()
+                    return data;
+                  }
+                  (async()=>{
+                    try{
+                      const delevery = await fetchData(apuFat);
+                      console.log(delevery);
+                      bodyFa = delevery.data['Body Fat Mass'],
+                      LeanMass = delevery.data['Lean Body Mass'],
 
-  }catch{
+                      viewResul = `
+                      <div class="section_2_div d-flex-column">
+                      <div class="card">
+                          <div class="card-header" >
+                          grasa en Kilogramos
+                          </div>
+                          <div class="card-body">
+                            ${bodyFa}
+                          </div>
+                          <div class="card">
+                          <div class="card-header" >
+                          su masa en Kilogramos
+                          </div>
+                          <div class="card-body">
+                            ${LeanMass}
+                          </div>
+                      </div>`
 
-  }
-})();
+                      contenedor2Dos.innerHTML = viewResul
 
- console.log(response.data.BMR)
-  GainExtrem = response.data["Extreme weight gain"]
-
-  console.log(GainExtrem);
-        // contenedor = document.getElementById("somatotipo").textContent = somatotype;
-        contenedor = document.getElementById("masa").textContent =  response.data.BMR;
-        contenedor = document.getElementById("grasa").textContent = bodyFat;
-         contenedor = document.getElementById("masa_limpia").textContent = mlgKg;
-  
-// ESTA ES LA FUNCION QUE CALCULA MASA Y GRASA 
-        // function  bodyFat (){   
-        //   fetch( `https://fitness-calculator.p.rapidapi.com/bodyfat?age=${age}&gender=${gender}&weight=${weight}&height=${height}&neck=${neck}&waist=${waist}&hip=${hip}`, options)
-        //   .then(response => response.json())
-        //   // .then(response => console.log(response))
-        //   .then(response => console.log(response)) // imprimirá 18.48
-        //   .catch(err => console.error(err));
-        
-        //   bmi = response.data["Body Fat (BMI method)"] 
-        //   IndiceGrasa = response.data['Body Fat Mass']
-        //   IndiceMasa = response.data['Lean Body Mass']
-        //   console.log(bmi, otro_dato, );
-        
-        // }
-        // bodyFat()
+                    }catch(error){
+                          console.error(err);
+                    }
+                  })();
+                  // bmi = response.data["Body Fat (BMI method)"] 
+                  // IndiceGrasa = response.data['Body Fat Mass'] 
+                  // IndiceMasa = response.data['Lean Body Mass']
+                  // console.log(bmi, otro_dato, 'imprime ?');
+                
+                }
+                bodyFat(apuFat)
 } 
   
 
@@ -137,7 +200,7 @@ async function fetchData(urlApi){
 
 
     function writing(str){
-      let arrFromStr = str.split('');   //split tranforma el string en Array
+      let arrFromStr = str.split('');   
       let i = 0;
       let printStr = setInterval(function(){
     
@@ -151,58 +214,4 @@ async function fetchData(urlApi){
      };
      writing('esta es la supercalculadora para ponerse mamadisimo en 4 meses')
 
-
-
-    // const otraPromesa = ()=>{
-    //   return new Promise ((resolve, reject)=>{
-    //     if(false)resolve('aca estamos ');
-    //     else(reject('mehhhh'));
-    //   })
-    // }
-    // otraPromesa()
-    // .then(response=> console.log(response))
-    // .catch(err=> console.log(err))
-// \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-
-
-    // const funcionother = ()=>{
-    //   return new Promise((r, reject)=>{
-    //       if(true){
-    //           r('hbjkioioioioi')
-    //       }else{
-    //         reject('mehhh ')
-    //       }
-    //     })
-    //   }
-    //   funcionother()
-    //   .then(response=> console.log(response))
-    //   .catch(err=> console.log(err))
-
-
-//     let numbers = [];
-//  do {
-//   console.log('aca en do ');
-//   var number = parseInt(prompt('introduce un numero')); 
-
-  
-//  } while (number>0);{
-//   numbers.push(number)
-//   var number = parseInt(prompt('introduce un numero'));
-//   console.log(numbers, 'while');
-//  }
-
-    // var numbers = [];
-    // var number 
-    // while (true) {
-    //   var number = parseInt(prompt('introduce un numero')); 
-
-    //   if (number>0) {
-    //      numbers.push(number)
-    //       console.log(numbers);
-    //     } else {
-    //       console.log(numbers-number);
-    //      }
-    
-      
-    // }
 
