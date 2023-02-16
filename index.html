@@ -1,100 +1,708 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>bodybuilderApp Royer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>contrucion/Muscular</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+
 </head>
-<body>
-    <main>
-        <section class="container">
-            
-            <div class="section-div container">
-                    <div class="barra">
-                        <h2 class="subtitulo text"> </h2>
-                        <div class="almac "></div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="">
-                            <p>Ingresa tu edad</p>
-                            <input type="number" name="edad" id="edad">
-                                    <p>Ingresa tu peso en kg</p>
-                                    <input type="text" name="peso" id="peso">
-                                    <p>Ingresa tu altura en metros</p>
-                                    <input type="number" name="altura" id="altura">
-                                    <p>cuello </p>
-                                    <input type="number" name="edad" id="cuello">
-                                    <p>cintura</p>
-                                    <input type="number" name="edad" id="cintura">
-                                    <p>cadera</p>
-                                    <input type="number" name="edad" id="cadera">
-                                    <p>cual es tu sexo</p>
-                                    <select id="sexo" name="sexo">
-                                        <option value="">opcion</option>
-                                        <option value="male">Chico</option>
-                                        <option value="female">Chica</option>
-                                    </select>
-                                    <p>Ingresa tu nivel de actividad física:</p>
-                                    <select id="actividad">
-                                        <option value="">selecion</option>
-                                        <option value="level_4">alta:ejercicio intenso 3-4 veces/semana</option>
-                                        <option value="level_3">moderada: Ejercicio 4-5 veces/semana”</option>
-                                        <option value="level_2">baja: Ejercicio 1-3 veces/semana</option>
-                                        <option value="level_1">Sedentario: poco o nada de ejercicio</option>
-                                    </select>
-                                    <p>Ingresa tu objetivos:</p>
-                                    <select id="objetivos">
-                                        <option value="">selecion</option>
-                                        <option value="maintain">mantener el peso</option>
-                                        <option value="mildlose">Pérdida de peso leve</option>
-                                        <option value="weightlose">Pérdida de peso extrema</option>
-                                        <option value="extremelose">Leve aumento de peso"</option>
-                                        <option value="mildgain">Ganancia extrema de peso</option>
-                                        <option value="weightgain">Sedentario: poco o nada de ejercicio</option>
-                                    </select>                    
-                                </label> <br> <br>
-                                <button type="button" onclick="datos()">enviar</button>
-                                
-                    </div>
+
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- Sidebar start -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+                <div class="sidebar-brand-icon rotate-n-15">
+                    <i class="fas fa-laugh-wink"></i>
+                </div>
+                <div class="sidebar-brand-text mx-3"> Progresos, dietas y  <sup>mas</sup></div>
+            </a>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item active">
+                <a class="nav-link" href="index.html">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Penel-Control</span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Opciones/prgreso/utilidades
             </div>
-                <section id="seccion_2">
-                    <div class="section_2_div">
-                        <div class="card">
-                            <div class="card-header" >
-                            </div>
-                            <div class="card-body" id="grasa">
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                    aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Perfil</span>
+                </a>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Datos de Inicio:</h6>
+                        <a class="collapse-item" href="login.html">Login</a>
+                        <a class="collapse-item" href="register">Register</a>
+                        <a class="collapse-item" href="forgot-password">Forgot Password</a>
+                        <a class="collapse-item" href="buttons.html">Somatotipo</a>
+                        <a class="collapse-item" href="cards">Objetivos</a>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Nav Item - Utilities Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+                    aria-expanded="true" aria-controls="collapseUtilities">
+                    <i class="fas fa-fw fa-wrench"></i>
+                    <span>Soy tu Nutriologo</span>
+                </a>
+                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Nutricion :</h6>
+                        <a class="collapse-item" href="utilities-color">Dieta Ideal(<sup>para ti</sup>)</a>
+                        <a class="collapse-item" href="utilities-border">Alimentos recomendados</a>
+                        <a class="collapse-item" href="utilities-animation"> Funtes de Macronutrientes</a>
+                        <a class="collapse-item" href="utilities-other">Funtes de  Micronutrientes</a>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                La ruta 4 meses
+            </div>
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
+                    aria-expanded="true" aria-controls="collapsePages">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Soy tu Entrenador</span>
+                </a>
+                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Entrenos variados</h6>
+                        <div class="collapse-divider"></div>
+                        <h6 class="collapse-header">Segun tu Objetivo</h6>
+                        <a class="collapse-item" href="404">bajar peso</a>
+                        <a class="collapse-item" href="blank">Ganar peso</a>
+                        <a class="collapse-item" href="blank">recomendaciones</a>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Nav Item - Charts -->
+            <li class="nav-item">
+                <a class="nav-link" href="charts">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>Tu Progreso</span></a>
+            </li>
+
+            <!-- Nav Item - Tables -->
+            <li class="nav-item">
+                <a class="nav-link" href="tables">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Historial</span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block">
+
+            <!-- Sidebar Toggler (Sidebar) -->
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
+
+            <!-- Sidebar Message -->
+            <div class="sidebar-card d-none d-lg-flex">
+                <img class="sidebar-card-illustration mb-2" src="img/undraw_rocket.svg" alt="...">
+                <p class="text-center mb-2"><strong>TU Entrenador</strong> accede a nuevas funcinalidades Cursos comunidades y mas </p>
+                <a class="btn btn-success btn-sm" href="https://startbootstrap.com/theme/sb-admin-pro">Upgrade to Pro!</a>
+            </div>
+
+        </ul>
+         <!-- End of Sidebar -->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+                    <!-- Sidebar Toggle (Topbar) -->
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
+
+                    <!-- Topbar Search -->
+                    <form
+                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                        <div class="input-group">
+                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+                                aria-label="Search" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" type="button">
+                                    <i class="fas fa-search fa-sm"></i>
+                                </button>
                             </div>
                         </div>
-                        <div class="card">
-                            <div class="card-header">
+                    </form>
+
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto">
+
+                        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+                        <li class="nav-item dropdown no-arrow d-sm-none">
+                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-search fa-fw"></i>
+                            </a>
+                            <!-- Dropdown - Messages -->
+                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+                                aria-labelledby="searchDropdown">
+                                <form class="form-inline mr-auto w-100 navbar-search">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control bg-light border-0 small"
+                                            placeholder="Search for..." aria-label="Search"
+                                            aria-describedby="basic-addon2">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary" type="button">
+                                                <i class="fas fa-search fa-sm"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
-                            <div class="card-body" id="masa">
+                        </li>
+
+                        <!-- Nav Item - Alerts -->
+                        <li class="nav-item dropdown no-arrow mx-1">
+                            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-bell fa-fw"></i>
+                                <!-- Counter - Alerts -->
+                                <span class="badge badge-danger badge-counter">3+</span>
+                            </a>
+                            <!-- Dropdown - Alerts -->
+                            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="alertsDropdown">
+                                <h6 class="dropdown-header">
+                                    Alertas
+                                </h6>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="mr-3">
+                                        <div class="icon-circle bg-primary">
+                                            <i class="fas fa-file-alt text-white"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="small text-gray-500">Enero 10, 2023</div>
+                                        <span class="font-weight-bold">Bienvenidoi a tu entrenador!</span>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="mr-3">
+                                        <div class="icon-circle bg-success">
+                                            <i class="fas fa-donate text-white"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="small text-gray-500">Enero 11, 2023</div>
+                                        Acabas de desbloquear un nuevo nivel ¡Felicidades¡
+                                    </div>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="mr-3">
+                                        <div class="icon-circle bg-warning">
+                                            <i class="fas fa-exclamation-triangle text-white"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="small text-gray-500">Enero 20, 2023</div>
+                                        Asi van tus resultados en tu primera semana Vamos por mas¡?
+                                    </div>
+                                </a>
+                                <a class="dropdown-item text-center small text-gray-500" href="#">Ver todo</a>
+                            </div>
+                        </li>
+
+                        <!-- Nav Item - Messages -->
+                        <li class="nav-item dropdown no-arrow mx-1">
+                            <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-envelope fa-fw"></i>
+                                <!-- Counter - Messages -->
+                                <span class="badge badge-danger badge-counter">7</span>
+                            </a>
+                            <!-- Dropdown - Messages -->
+                            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="messagesDropdown">
+                                <h6 class="dropdown-header">
+                                    Mensajes
+                                </h6>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="dropdown-list-image mr-3">
+                                        <img class="rounded-circle" src="img/undraw_profile_2.svg"
+                                            alt="...">
+                                        <div class="status-indicator bg-success"></div>
+                                    </div>
+                                    <div class="font-weight-bold">
+                                        <div class="text-truncate">Segun la app hoy debo hacer piernas, a ti que te indica ?</div>
+                                        <div class="small text-gray-500">Javier Chacon· 58m</div>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="dropdown-list-image mr-3">
+                                        <img class="rounded-circle" src="img/undraw_profile_2.svg"
+                                            alt="...">
+                                        <div class="status-indicator"></div>
+                                    </div>
+                                    <div>
+                                        <div class="text-truncate">Buen entreno el de hoy felicidades Continua asi pronto tebndras grandes resultados Recuierda el plan de alimemtacion de la app</div>
+                                        <div class="small text-gray-500">Fabian Barrera 1d</div>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="dropdown-list-image mr-3">
+                                        <img class="rounded-circle" src="img/undraw_profile_3.svg"
+                                            alt="...">
+                                        <div class="status-indicator bg-warning"></div>
+                                    </div>
+                                    <div>
+                                        <div class="text-truncate"> Su evaluacion con el fisitria esta agendada para el dia martes del la semana proxima recuerda asistir con ropa comoda (informacion enviada al correo y whatsap)</div>
+                                        <div class="small text-gray-500">Emily Fowler 2d</div>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="dropdown-list-image mr-3">
+                                        <img class="rounded-circle" src="https://source.unsplash.com/Mv9hjnEUHR4/60x60"
+                                            alt="...">
+                                        <div class="status-indicator bg-success"></div>
+                                    </div>
+                                    <div>
+                                        <div class="text-truncate">Bienvenido a nuestra familia Fitness</div>
+                                        <div class="small text-gray-500">Chicken-Dog · 2w</div>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
+                            </div>
+                        </li>
+
+                        <div class="topbar-divider d-none d-sm-block"></div>
+
+                        <!-- Nav Item - User Information -->
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Royer J Caceres Vega</span>
+                                <img class="img-profile rounded-circle"
+                                    src="img/undraw_profile.svg">
+                            </a>
+                            <!-- Dropdown - User Information -->
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="userDropdown">
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    perfil
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    config
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Historial
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    salir
+                                </a>
+                            </div>
+                        </li>
+
+                    </ul>
+
+                </nav>
+                <!-- End of Topbar -->
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+                    </div>
+                    <!-- inputs recibe datos  -->
+                    <section>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col text-center">
+                                    <small> Completa la siguiente informacion <sub>para imiciar</sub></small>
+                                </div>
+                            </div>
+                            <div class="row">
+                                    <form>
+                                        <div class="form-row">
+                                          <div class="col">
+                                            <input id="peso" type="number" class="form-control" placeholder="Peso">
+                                          </div>
+                                          <div class="col">
+                                            <input id="altura" type="number" class="form-control" placeholder="Estatura en mts">
+                                          </div>
+                                        </div>
+                                    </form>
+                            </div>
+                            <div class="row">
+                                <form>
+                                    <div class="form-row">
+                                      <div class="col">
+                                        <input id="edad" type="number" class="form-control" placeholder="edad">
+                                      </div>
+                                      <div class="col">
+                                        <input id="cuello" type="number" class="form-control" placeholder="Cuello">
+                                      </div>
+                                    </div>
+                                  </form>
+                            </div>
+                            <div class="row">
+                                <form>
+                                    <div class="form-row">
+                                      <div class="col">
+                                        <input id="cadera" type="number" class="form-control" placeholder="cadera">
+                                      </div>
+                                      <div class="col">
+                                        <input  id="cintura" type="number" class="form-control" placeholder="cintura">
+                                      </div>
+                                    </div>
+                                  </form>
+                            </div>
+                            <div class="row">
+                                <select class="form-control" id="actividad" >
+                                    <option value="">nivel de actividad fisica</option>
+                                    <option value="level_4">alta:ejercicio intenso 3-4 veces/semana</option>
+                                    <option value="level_3">moderada: Ejercicio 4-5 veces/semana”</option>
+                                    <option value="level_2">baja: Ejercicio 1-3 veces/semana</option>
+                                    <option value="level_1">Sedentario: poco o nada de ejercicio</option>
+                                </select>
+                            </div>
+                            <div class="row">
+                                <select class="form-control" id="objetivos">
+                                    <option value="">cual es tu Objetivo</option>
+                                    <option value="maintain">mantener el peso</option>
+                                    <option value="mildlose">Pérdida de peso leve</option>
+                                    <option value="weightlose">Pérdida de peso extrema</option>
+                                    <option value="extremelose">Leve aumento de peso"</option>
+                                    <option value="mildgain">Ganancia extrema de peso</option>
+                                    <option value="weightgain">Sedentario: poco o nada de ejercicio</option>
+                                </select>
+                            </div>
+                             <div class="row">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="sexo" value="male">
+                                    <label class="form-check-label" for="inlineRadio1">Chico</label>
+                                  </div>
+                                  <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="sexo" value="female">
+                                    <label class="form-check-label" for="inlineRadio2">Chica</label>
+                                  </div>
+                                  <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" disabled>
+                                    <label class="form-check-label" for="inlineRadio3">otro (disabled)</label>
+                                  </div>
+                             </div>
+                           <div class="row">
+                                <div class="col d-flex justify-content-center">
+                                    <a  class="btn btn-primary btn-sm m-auto" href="#" role="button" onclick="datos()">calcular</a>
+                                </div>
+                           </div>
+                        </div>
+                    </section>
+                   <!--  inputs recibe datos  fin  -->
+
+                    <!-- Content  print rsult data Row -->
+                    <div class="row">
+
+                        <!-- Indice de grasa corporal  en % -->
+                        <div  id="indiceDmasa" class="col-xl-3 col-md-6 mb-4">
+                        </div>
+
+                        <!-- Grasa Corporal en Kgrs -->
+                        <div id="bodyFatMassview" class="col-xl-3 col-md-6 mb-4">
+                           
+                        </div>
+
+                        <!-- masa coroporal magra LeanBodyMassView -->
+                        <div id="LeanBodyMassId" class="col-xl-3 col-md-6 mb-4">
+                         
+                        </div>
+
+                        <!-- Categoría de grasa corporal BodyFatCategory -->
+                        <div id="BodyFatCategoryId" class="col-xl-3 col-md-6 mb-4">
+                        </div>
+                    </div>
+
+                    <!-- Content Row -->
+
+                    <div class="row">
+
+                        <!-- Area Chart -->
+                        <div class="col-xl-8 col-lg-7">
+                            <div class="card shadow mb-4">
+                                <!-- Card Header - Dropdown -->
+                                <div
+                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                    <h6 class="m-0 font-weight-bold text-primary">Tu Progreso</h6>
+                                    <div class="dropdown no-arrow">
+                                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-40"></i>
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+                                            aria-labelledby="dropdownMenuLink">
+                                            <div class="dropdown-header">Dropdown Header:</div>
+                                            <a class="dropdown-item" href="#">Action</a>
+                                            <a class="dropdown-item" href="#">Another action</a>
+                                            <div class="dropdown-divider"></div>
+                                            <a class="dropdown-item" href="#">Something else here</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Card Body -->
+                                <div class="card-body">
+                                    <div class="chart-area">
+                                        <canvas id="myAreaChart"></canvas>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="card">
-                            <div class="card-header">
-                            </div>
-                            <div class="card-body" id="masa_limpia">
+
+                        <!-- Pie Chart -->
+                        <div class="col-xl-4 col-lg-5">
+                            <div class="card shadow mb-4">
+                                <!-- Card Header - Dropdown -->
+                                <div
+                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                    <h6 class="m-0 font-weight-bold text-primary">composicion corporal</h6>
+                                    <div class="dropdown no-arrow">
+                                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+                                            aria-labelledby="dropdownMenuLink">
+                                            <div class="dropdown-header">Componentes:</div>
+                                            <a class="dropdown-item" href="#">desnsida osea</a>
+                                            <a class="dropdown-item" href="#">Masa Magra(musculo)</a>
+                                            <div class="dropdown-divider">Grasa Corporal krg </div>
+                                            <a class="dropdown-item" href="#">Liquidos</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Card Body -->
+                                <div class="card-body">
+                                    <div class="chart-pie pt-4 pb-2">
+                                        <canvas id="myPieChart"></canvas>
+                                    </div>
+                                    <div class="mt-4 text-center small">
+                                        <span class="mr-2">
+                                            <i class="fas fa-circle text-primary"></i> Masa magra
+                                        </span>
+                                        <span class="mr-2">
+                                            <i class="fas fa-circle text-success"></i> Grasa corporal
+                                        </span>
+                                        <span class="mr-2">
+                                            <i class="fas fa-circle text-info"></i> Densidad osea
+                                        </span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                                        <p>segun nuestros calculos si entrenas 5 veces por semana con el entreno recomendado y sigues rigurosamente el plan de entreno sugerido en 6 meses abras podido </p>
+                    </div>
+
+                    <!-- Content Row -->
+                    <div class="row">
+
+                        <!-- Content Column -->
+                        <div class="col-lg-6 mb-4">
+
+                            <!-- Project Card Example -->
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">Tu progreso segun tus Objetivos de acondicionamiento fisico</h6>
+                                </div>
+                                <div class="card-body">
+                                    <h4 class="small font-weight-bold">Aumento de fuerza <span
+                                            class="float-right">20%</span></h4>
+                                    <div class="progress mb-4">
+                                        <div class="progress-bar bg-info" role="progressbar" style="width: 80%"
+                                            aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                    <h4 class="small font-weight-bold">Aumento de resistencia <span
+                                            class="float-right">10%</span></h4>
+                                    <div class="progress mb-4">
+                                        <div class="progress-bar bg-Secondary" role="progressbar" style="width: 10%"
+                                            aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                    <h4 class="small font-weight-bold">aumento de masa muscular<span
+                                            class="float-right">40%</span></h4>
+                                    <div class="progress mb-4">
+                                        <div class="progress-bar" role="progressbar" style="width: 40%"
+                                            aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                    <h4 class="small font-weight-bold">Perdida de grasa  <span
+                                            class="float-right">72%</span></h4>
+                                    <div class="progress mb-4">
+                                        <div class="progress-bar bg-info" role="progressbar" style="width: 72%"
+                                            aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                    <h4 class="small font-weight-bold"> Disiplina<span
+                                            class="float-right">Complete!</span></h4>
+                                    <div class="progress ">
+                                        <div class="progress-bar bg-success" role="progressbar" style="width: 99%"
+                                            aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
                             </div>
-                 </section>
-                 <div id="seccion_3"></div>
-        </section>
-        <!-- ////////////////////////
-        recomentaciones 
-        //////////////////////// -->
-    </main>
-            
-                <script src="bodybuilt.js"></script>
-            </body>
-            
-            
+
+                    
+                        </div>
+
+                        <div class="col-lg-6 mb-4">
+
+                            <!-- Illustrations -->
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary"> Necesitas inspiracion ?</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="text-center">
+                                       <!--  <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;"
+                                            src="img/undraw_posting_photo.svg" alt="..."> -->
+                                            <iframe class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 55rem; height: auto;" src="https://www.youtube.com/embed/EKStksvdc2g" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                    </div>
+                                    <p>No permitas que el miedo al dolor fisico te detenga! El éxito se construye a través del esfuerzo y la perseverancia. No hay atajos en el camino hacia una vida saludable y en forma.
+                                        <a
+                                            target="_blank" rel="nofollow" href="https://undraw.co/">vamos a Entrenar</a>,
+                                            ¡Comprométete contigo mismo y alcanza tus objetivos!. ¡Atrévete a ser extraordinario!</p>
+                                    <a target="_blank" rel="nofollow" href="https://instagram.com/ray.boyi?igshid=ZDdkNTZiNTM=">Mantened la calma y sigame;</a>
+                                </div>
+                            </div>
+
+                            <!-- Approach -->
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">Porque seguir entrenando?</h6>
+                                </div>
+                                <div class="card-body">
+                                    <p>no solo te ayuda a alcanzar una buena forma física, sino que también tiene beneficios a nivel emocional y psicológico. La actividad física regular puede ayudar a reducir el estrés y la ansiedad, mejorar el estado de ánimo y aumentar la autoestima.</p>
+                                    <p class="mb-0">B Además, el ejercicio aumenta la liberación de endorfinas, conocidas como las "hormonas de la felicidad</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; <a href="https://rojorom.github.io/PORTFOLIO/" target="_blank" rel="noopener noreferrer">Royer Caceres 2023</a> </span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="login.html">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
+    <script src="js/logic.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="vendor/chart.js/Chart.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="js/demo/chart-area-demo.js"></script>
+    <script src="js/demo/chart-pie-demo.js"></script>
+
+</body>
+
 </html>
