@@ -5,11 +5,13 @@ function datos(){
     BodyFatCategoryViewContai = document.getElementById("BodyFatCategoryId") 
     bodyFatMassviewContai = document.getElementById("bodyFatMassview")
     LeanBodyMassViewContai = document.getElementById("LeanBodyMassId") 
+
+    HoldnWeigth = document.getElementById("HoldnWeigth") 
+    extremeWeightGain = document.getElementById("extremeWeightGain") 
+    extremeWeightLose = document.getElementById("extremeWeightLose") 
+    midleWeightLose = document.getElementById("midleWeightLose") 
+
     
-
-
-
-
     contenedor2Dos = document.getElementById("seccion_2") 
 
 
@@ -45,21 +47,28 @@ function datos(){
         (async ()=> {
           try{
             const entrega = await fetchData(apuCal);
+            
             caloryMainten = entrega.data["goals"]['maintain weight'],
+
                 calory_extremeGainWieght = entrega.data["goals"]['Extreme weight gain']['calory'],
                 howManyWieghtgain = entrega.data["goals"]['Extreme weight gain']['gain weight'],
+
                     howManyWieghtLoss = entrega.data["goals"]['Extreme weight loss']['loss weight'],
                     calory_extremeLoseWieght = entrega.data["goals"]['Extreme weight loss']['calory'],
-                        howManyWieghtMiddleCalorie = entrega.data["goals"]['Mild weight loss']['calory'],
+
+                        WieghtMiddleCalorie = entrega.data["goals"]['Mild weight loss']['calory'],
                         howManyWieghtMiddleLoss = entrega.data["goals"]['Mild weight loss']['loss weight'];
-              view = `
+
+            console.log(howManyWieghtgain, howManyWieghtgain, Math.round(calory_extremeLoseWieght));
+
+              viewHoldnWeigth = `
               <div class="card border-left-primary shadow h-100 py-2">
               <div class="card-body">
                   <div class="row no-gutters align-items-center">
                       <div class="col mr-2">
                           <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                              % de grasa corporal</div>
-                          <div class="h5 mb-0 font-weight-bold text-gray-800">${entrega.data["Body Fat Mass"]}</div>
+                              Calorias de mantenimiento</div>
+                          <div class="h5 mb-0 font-weight-bold text-gray-800">${Math.round(caloryMainten)}</div>
                       </div>
                       <div class="col-auto">
                           <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -68,7 +77,78 @@ function datos(){
               </div>
           </div>
               `;
-              contenedor1Uno.innerHTML = view;
+              HoldnWeigth.innerHTML = viewHoldnWeigth;
+
+              viewextremeWeightGain = `
+              <div class="card border-left-primary shadow h-100 py-2">
+              <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                      <div class="col mr-2">
+                          <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                              Calorias para aumento extremo</div>
+                          <div class="h5 mb-0 font-weight-bold text-gray-800">${Math.round(calory_extremeGainWieght)}</div>
+                          <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                              Resultado </div>
+                              <div class="h5 mb-0 font-weight-bold text-gray-800">${howManyWieghtgain}</div>
+                      </div>
+                      <div class="col-auto">
+                          <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                      </div>
+                  </div>
+              </div>
+          </div>
+              `;
+              extremeWeightGain.innerHTML = viewextremeWeightGain;
+
+              
+                    viewmidleWeightLose = `
+                    <div class="card border-left-primary shadow h-100 py-2">
+                    <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                    Calorias para prdida moderada</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">${Math.round(WieghtMiddleCalorie)}</div>
+                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                    Resultado </div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">${howManyWieghtMiddleLoss}</div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                    `;
+                    midleWeightLose.innerHTML = viewmidleWeightLose;
+
+                viewextremeWeightLose = `
+                <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                Calorias para perdida extrema</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">${Math.round(calory_extremeLoseWieght)}</div>
+                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                Resultado </div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">${howManyWieghtLoss}</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                <div class="row">
+                <div class="col d-flex justify-content-center">
+                   
+                </div>
+                `;
+                extremeWeightLose.innerHTML = viewextremeWeightLose;
+
+                
+           
           }catch(error){
             console.error(error)
             }
