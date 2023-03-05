@@ -11,8 +11,8 @@ function datos(){
     extremeWeightLose = document.getElementById("extremeWeightLose") 
     midleWeightLose = document.getElementById("midleWeightLose") 
 
-    
-    contenedor2Dos = document.getElementById("seccion_2") 
+    botomCalories = document.getElementById("botomCalories");
+
 
 
   const options = {
@@ -144,8 +144,34 @@ function datos(){
                 <div class="col d-flex justify-content-center">
                    
                 </div>
+                <div class="row">
+                               
                 `;
                 extremeWeightLose.innerHTML = viewextremeWeightLose;
+
+                viewbotomCalories = `
+                <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                Que son las calorias ?</div>
+                                <div class="col d-flex justify-content-center">
+                                    <a  class="btn btn-primary btn-sm m-auto" href="#" role="button" >Aprende</a>
+                                </div>
+                             </div>
+                    </div>
+                </div>
+                </div>
+                <div class="row">
+                <div class="col d-flex justify-content-center">
+                   
+                </div>
+                <div class="row">
+                                     
+                               
+                `;
+                   botomCalories.innerHTML = viewbotomCalories
 
                 
            
